@@ -8,7 +8,7 @@ import requests
 
 load_dotenv()
 
-OUT_DIR = Path("knowledge/raw")
+OUT_DIR = Path("knowledge/raw") / datetime.date.today().isoformat()
 
 
 def slugify(text: str, max_len: int = 60) -> str:

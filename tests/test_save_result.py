@@ -90,3 +90,11 @@ def test_save_result_creates_output_dir(tmp_path, monkeypatch):
     save_result(1, result)
     assert nested.exists()
     assert (nested / "01-dir-test.md").exists()
+
+
+import datetime
+
+def test_out_dir_includes_today():
+    import scrape_pipeline
+    today = datetime.date.today().isoformat()
+    assert scrape_pipeline.OUT_DIR.parts[-1] == today
